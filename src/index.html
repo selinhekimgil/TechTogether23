@@ -1,28 +1,66 @@
 <!-- create html template -->
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-        <meta charset="UTF-8">
-        <title>Personal Finance</title>
-        <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-        <!-- do the above stylesheet later once figma is figured out -->
-    </head>
-
-    <body>
-        <div>
-            <h1>Personal Finance</h1>
-            <h3>chatbot page</h3>
-        </div>
-        <!-- <script src="assets/js/app.js"></script> -->
-        <!-- create a landing page with two columns as the divs -->
-        <!-- create data visualisation template in the first column -->
-        <!-- create a chatbot template in the second column -->
-        <!-- rough draft! loll -->
+        <!-- This is the main template for the site, with index.jsx building the content and behavior -->
         
+        <title>Good day, TechTogether!</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    </head>
+  
+<body>
+    <div id="root"></div>
+    <div id="clock">8:10:45</div>
+    <script type="module" src="/src/index.jsx"></script>
 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0" />
 
-    </body>
-
+    <title>Digital Clock</title>
+    <style>
+        #clock {
+            font-size: 4em;
+            width: 6em;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+        
+            if (hour > 12) {
+                hour -= 12;
+                am_pm = "PM";
+            }
+            if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+        
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+        
+            let currentTime = hour + ":"
+                + min + ":" + sec + am_pm;
+        
+            document.getElementById("clock")
+                .innerHTML = currentTime;
+        }
+        showTime();
+    </script>
+</body>
 
 </html>
